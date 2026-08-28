@@ -40,5 +40,5 @@ public abstract class Food : ICalculatable
         Prise = prose;
     }
 
-    public virtual void OnCalculate() { }
+    public virtual int OnCalculate() { return 0; }
 }

@@ -1,14 +1,32 @@
 ﻿using System;
 
-internal class Topping : Food
+public enum ToppingType
 {
-    public Topping(string name, int prise) : base  (name, prise)
+    Tomato,
+    Egg,
+    Patty,
+    Lattuce
+}
+
+public class Topping : Food
+{
+    private ToppingType _toppingType;
+
+    public ToppingType ToppingType
     {
-        FoodType = FoodType.Topping;
+        get {  return _toppingType; }
+
+        set { _toppingType = value; }
     }
 
-    public override void OnCalculate()
+    public Topping(string name, int prise, ToppingType toppingType) : base  (name, prise)
     {
+        FoodType = FoodType.Topping;
+        ToppingType = toppingType;
+    }
 
+    public override int OnCalculate()
+    {
+        return 0;
     }
 }
