@@ -14,8 +14,8 @@ public class Burger : Food, IOrderable, IToppingable
         toppings.Add(topping, count);
     }
 
-    public override int OnCalculate()
+    public override int OnCalculate(int addAmount)
     {
-        return Prise;
+        return Prise + addAmount;
     }
 }

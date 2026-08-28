@@ -21,13 +21,18 @@ public class Desert : Food, IOrderable, ISalable
         FoodType = FoodType.Desert;
     }
 
-    public void PrintSalePoint()
+    public string PrintSalePoint()
     {
-        Console.WriteLine($"{SaleValue[0]}게 이상 구매시 {SaleValue[1]}% 할인");
+        return $"{SaleValue[0]}개 이상 구매시 {SaleValue[1]}% 할인";
     }
 
-    public override int OnCalculate()
+    public override int OnCalculate( int addAmount )
     {
-        return 0;
+        if(addAmount >= Prise * SaleValue[0])
+        {
+            return (addAmount * (100 - SaleValue[1]) / 100);
+        }
+
+        return Prise + addAmount;
     }
 }

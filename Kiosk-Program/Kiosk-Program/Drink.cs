@@ -6,8 +6,8 @@ public class Drink : Food, IOrderable
         FoodType = FoodType.Drink;
     }
 
-    public override int OnCalculate()
+    public override int OnCalculate(int addAmount)
     {
-        return 0;
+        return Prise + addAmount;
     }
 }

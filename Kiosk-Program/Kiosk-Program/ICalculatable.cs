@@ -1,5 +1,5 @@
 ﻿using System;
 public interface ICalculatable
 {
-    public void OnCalculate() { }
+    public virtual int OnCalculate(int addAmunt = 0) { return 0; }
 }

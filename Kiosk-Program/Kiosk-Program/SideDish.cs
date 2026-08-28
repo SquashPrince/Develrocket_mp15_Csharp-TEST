@@ -7,8 +7,8 @@ public class SideDish : Food, IOrderable
         FoodType = FoodType.SideDish;
     }
 
-    public override int OnCalculate()
+    public override int OnCalculate(int addAmount)
     {
-        return 0;
+        return Prise + addAmount;
     }
 }
