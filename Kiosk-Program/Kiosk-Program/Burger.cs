@@ -6,6 +6,6 @@ public class Burger : Food
 
     public override void OnCalculate()
     {
-        
+
     }
 }
