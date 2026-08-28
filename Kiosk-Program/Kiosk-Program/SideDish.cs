@@ -6,9 +6,4 @@ public class SideDish : Food, IOrderable
     {
         FoodType = FoodType.SideDish;
     }
-
-    public override int OnCalculate(int addAmount)
-    {
-        return Prise + addAmount;
-    }
 }

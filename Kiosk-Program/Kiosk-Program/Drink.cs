@@ -5,9 +5,4 @@ public class Drink : Food, IOrderable
     {
         FoodType = FoodType.Drink;
     }
-
-    public override int OnCalculate(int addAmount)
-    {
-        return Prise + addAmount;
-    }
 }
