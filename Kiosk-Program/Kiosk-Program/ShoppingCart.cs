@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Runtime.ExceptionServices;
 
 
 public class ShoppingCart<T> where T : Food
 {
     private List<T> T_CartList;
-    private List<int> totalPrise = new List<int>();
+    private int _totalPrise;
+    public int TotalPrise
+    {
+        get { return _totalPrise; }
+        private set { _totalPrise = value; }
+    }
 
     private int CartSize
     {
@@ -36,28 +42,27 @@ public class ShoppingCart<T> where T : Food
 
     public void PrintCartList()
     {
-        string checkStr = T_CartList[0].Name;
-        int menuPriseSum = 0;
+        Console.WriteLine("[장바구니]");
 
-        foreach(T list in T_CartList)
+        TotalPrise = 0;
+
+        for (int i = 0; i < Enum.GetNames(typeof(FoodType)).Length; i++)
         {
-            if (checkStr == list.Name)
-            {
-                menuPriseSum = list.OnCalculate(menuPriseSum);
+            int menuPriseSum = 0;
 
-                Console.WriteLine(menuPriseSum);
-            }
-            else
+            for (int j = 0; j < T_CartList.Count; j++)
             {
-                Console.WriteLine($"{list.Name} x{GetNumByName(list.Name)}   {list.OnCalculate(menuPriseSum)}원");
-                totalPrise.Add(menuPriseSum);
-
-                menuPriseSum = 0;
-                checkStr = list.Name;
+                if (T_CartList[j].FoodType == (FoodType)i)
+                {
+                    menuPriseSum += T_CartList[j].Prise;
+                }
             }
+            Console.WriteLine($"{T_CartList[i].Name} x{GetNumByName(T_CartList[i].Name)}   {T_CartList[i].OnCalculate(menuPriseSum)}원");
+            TotalPrise += menuPriseSum;
         }
 
-        Console.WriteLine($"합계 : {GetTotalPrise()}원");
+        Console.WriteLine($"합계 : {TotalPrise}원");
+        Console.WriteLine("---------------------------------");
     }
 
     public int GetNumByName(string name)
@@ -88,17 +93,5 @@ public class ShoppingCart<T> where T : Food
         }
 
         return count;
-    }
-
-    public int GetTotalPrise()
-    {
-        int sum = 0;
-
-        foreach(int prise in totalPrise)
-        {
-            sum += prise;
-        }
-
-        return sum;
     }
 }

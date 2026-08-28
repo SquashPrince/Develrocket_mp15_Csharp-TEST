@@ -2,12 +2,10 @@
 
 public enum FoodType
 {
-    None,
     Burger,
     Drink,
-    Desert,
     SideDish,
-    Topping
+    Desert
 }
 
 public abstract class Food : ICalculatable

@@ -17,7 +17,7 @@ public class Program
         {
             new Burger("불고기 버거", 10000),
             new Drink("콜라", 2000),
-            new SideDish("감자 튀김", 10000),
+            new SideDish("감자 튀김", 1000),
             new Desert("소프트 아이스크림", 500, [5, 10])
         };
 
@@ -34,6 +34,12 @@ public class Program
 
         ShoppingCart<Food> shoppingCart = new ShoppingCart<Food>();
 
+        shoppingCart.Add(1,foods);
+
+        shoppingCart.Add(2,foods);
+
+        shoppingCart.Add(3,foods);
+
         shoppingCart.Add(4,foods);
         shoppingCart.Add(4,foods);
         shoppingCart.Add(4,foods);
@@ -41,6 +47,7 @@ public class Program
         shoppingCart.Add(4,foods);
         shoppingCart.Add(4,foods);
         shoppingCart.Add(4,foods);
+
 
         shoppingCart.PrintCartList();
     }

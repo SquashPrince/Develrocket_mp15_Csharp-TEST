@@ -21,7 +21,6 @@ public class Topping : Food
 
     public Topping(string name, int prise, ToppingType toppingType) : base  (name, prise)
     {
-        FoodType = FoodType.Topping;
         ToppingType = toppingType;
     }
 

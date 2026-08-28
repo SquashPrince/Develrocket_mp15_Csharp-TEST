@@ -33,6 +33,6 @@ public class Desert : Food, IOrderable, ISalable
             return (addAmount * (100 - SaleValue[1]) / 100);
         }
 
-        return Prise + addAmount;
+        return Prise;
     }
 }
