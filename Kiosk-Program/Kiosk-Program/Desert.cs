@@ -1,5 +1,5 @@
 ﻿using System;
-public class Desert : Food, IOrderable, ISalable
+public class Desert : Food, ISalable, ICalculatable
 {
     private int[] _saleValue = new int[2];
 
@@ -26,11 +26,11 @@ public class Desert : Food, IOrderable, ISalable
         return $"{SaleValue[0]}개 이상 구매시 {SaleValue[1]}% 할인";
     }
 
-    public override int OnCalculate( int addAmount )
+    public int OnCalculate( int addAmount )
     {
-        if(addAmount >= Prise * SaleValue[0])
+        if(addAmount >= SaleValue[0])
         {
-            return (addAmount * (100 - SaleValue[1]) / 100);
+            return (Prise * (100 - SaleValue[1]) / 100);
         }
 
         return Prise;

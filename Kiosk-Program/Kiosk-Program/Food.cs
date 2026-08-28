@@ -8,7 +8,7 @@ public enum FoodType
     Desert
 }
 
-public abstract class Food : ICalculatable
+public abstract class Food
 {
     private string _name = "";
 
@@ -64,5 +64,5 @@ public abstract class Food : ICalculatable
         Prise = prose;
     }
 
-    public virtual int OnCalculate(int addAmount) { return 0; }
+    public virtual int OnCalculate() { return Prise; }
 }
