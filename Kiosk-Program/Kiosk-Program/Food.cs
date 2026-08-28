@@ -5,7 +5,9 @@ public enum FoodType
     None,
     Burger,
     Drink,
-    Desert
+    Desert,
+    SideDish,
+    Topping
 }
 
 public abstract class Food : ICalculatable
@@ -26,6 +28,12 @@ public abstract class Food : ICalculatable
         protected set { _prise = value; }
     }
 
+    private FoodType _foodType;
+    public FoodType FoodType
+    {
+        get { return _foodType; }
+        protected set { _foodType = value; }
+    }
     public Food(string name, int prose)
     {
         Name = name;

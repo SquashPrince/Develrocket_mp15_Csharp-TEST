@@ -11,12 +11,6 @@ public class Program
         PrintConsole("---------------------------------");
     }
 
-    static T ShoppingCart<T>(params T[] values) where T : IOderable
-    {
-
-        return default(T); 
-    }
-
     static void PrintConsole(string text)
     {
         Console.WriteLine(text);
