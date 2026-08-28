@@ -1,6 +1,14 @@
 ﻿using System;
 
-public abstract class Food
+public enum FoodType
+{
+    None,
+    Burger,
+    Drink,
+    Desert
+}
+
+public abstract class Food : ICalculatable
 {
     private string _name = "";
 
@@ -23,4 +31,6 @@ public abstract class Food
         Name = name;
         Prise = prose;
     }
+
+    public virtual void OnCalculate() { }
 }
