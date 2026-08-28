@@ -1,5 +1,5 @@
 ﻿using System;
-public class Drink : Food, IOrderable
+public class Drink : Food
 {
     public Drink(string name, int prise) : base(name, prise)
     {

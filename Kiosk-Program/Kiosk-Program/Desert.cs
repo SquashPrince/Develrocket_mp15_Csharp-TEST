@@ -1,5 +1,5 @@
 ﻿using System;
-public class Desert : Food, IOrderable, ISalable, ICalculatable
+public class Desert : Food, ISalable, ICalculatable
 {
     private int[] _saleValue = new int[2];
 

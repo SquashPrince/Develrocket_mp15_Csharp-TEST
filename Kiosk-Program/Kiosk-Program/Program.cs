@@ -7,16 +7,21 @@ public class Program
 {
     static void Main(string[] args)
     {
-        const string SHOP_NAME = "맛나 패스트 푸트";
+        const string SHOP_NAME = "맛있다! 패스트푸드";
 
         Food[] foods =
         {
-            new Burger("불고기 버거", 10000, [3, 5]),
-            new Drink("콜라", 2000),
-            new SideDish("감자 튀김", 1000),
+            new Burger("불고기 버거", 6500, [3, 5]),
+            new Burger("새우 버거", 5000, [0, 0]),
+            new Burger("치즈 버거", 4300, [5, 8]),
+            new Drink("콜라", 800),
+            new Drink("사이다", 700),
+            new SideDish("감자 튀김", 500),
             new SideDish("치즈 스틱", 1800),
-            new SideDish("코울슬로", 3000),
-            new Desert("소프트 아이스크림", 500, [5, 10])
+            new SideDish("코울슬로", 500),
+            new Desert("빙수", 4500, [10, 4]),
+            new Desert("팥빵", 1500, [3, 3]),
+            new Desert("아이스크림", 300, [5, 7])
         };
 
         ShoppingCart<Food> shoppingCart = new ShoppingCart<Food>();
@@ -55,7 +60,7 @@ public class Program
                     break;
 
                 case 4:
-                    // 정산
+                    shoppingCart.PrintTotalList(foods);
                     return;
             }
         }
@@ -89,11 +94,10 @@ public class Program
     {
         int inputMoney = ConsoleInput.ReadIntAtLeast("\n입금하실 금액을 입력해주세요 : ", shopping.TotalPrise);
 
-
         int leastMoney = inputMoney - shopping.TotalPrise;
 
-        Console.WriteLine($"\n거스름돈 : {leastMoney}원");
+        Console.WriteLine($"\n[거스름돈 : {leastMoney}원]");
 
-        shopping.RemoveAll();
+        shopping.SaveCustomerBuyLog();
     }
 }

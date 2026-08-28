@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Burger : Food, IOrderable, IToppingable, ICalculatable, ISalable
+public class Burger : Food, ICalculatable, ISalable
 {
     private int[] _saleValue = new int[2];
 
@@ -24,12 +24,17 @@ public class Burger : Food, IOrderable, IToppingable, ICalculatable, ISalable
 
     public string PrintSalePoint()
     {
+        if(SaleValue[0] == 0)
+        {
+            return "정가";
+        }
+
         return $"{SaleValue[0]}개 이상 구매시 {SaleValue[1]}% 할인";
     }
 
     public int OnCalculate(int addAmount)
     {
-        if (addAmount >= SaleValue[0])
+        if (SaleValue[0] >= 1 && addAmount >= SaleValue[0])
         {
             return (Prise * (100 - SaleValue[1]) / 100);
         }
